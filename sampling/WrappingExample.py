@@ -53,7 +53,7 @@ def getVelocityDataCGNS(filePath):
 
 def main():
 
-    targetCGNS = rootPath + 'output/airfoil_1_G2_A_L0_case_0_000_surf_turb.cgns'
+    targetCGNS = rootPath + 'exampleAirfoil.cgns'
 
     velocityData, xvals, yvals = getVelocityDataCGNS(targetCGNS)
 
@@ -72,46 +72,37 @@ def main():
         yExtended[i] = np.append(yvals[i], yvals[i, 0])
         velocityExtended[i] = np.append(velocityData[i], velocityData[i, 0])
 
-    fig, axes = plt.subplots(1, 1)
+    fig, axes = plt.subplots(1, 2)
 
-    #axes.contourf(xExtended, yExtended, velocityExtended, levels = 1000)
-    axes.set_xlim([-0.25, 1.25])
-    axes.set_ylim([-1, 1])
-    axes.axis('off')
+    axes[0].contourf(xExtended, yExtended, velocityExtended, levels = 1000)
+    axes[0].set_xlim([-0.25, 1.25])
+    axes[0].set_ylim([-1, 1])
+    axes[0].axis('off')
 
     #coords = list(zip(xvals[0, :292], yvals[0, :292]))
     #polygon = Polygon(coords[:292], facecolor='none', edgecolor='red', linewidth = 4)
     #axes.add_patch(polygon)
     cmap = plt.get_cmap('hsv', 20)
 
-    for i in [0, 45, 48, 50, 51, 52, 53, 54, 55]:
+    for i in [0, 40, 45, 50, 55, 60]:
         coords = list(zip(xvals[i, :292], yvals[i, :292]))
-        polygon = Polygon(coords[:292], facecolor='none', edgecolor = cmap(i%20))
-        axes.add_patch(polygon)
+        polygon = Polygon(coords[:292], facecolor='none', edgecolor = cmap(i%12))
+        axes[0].add_patch(polygon)
+
+
+    axes[1].contourf(np.flip(velocityExtended, 1), levels = 1000)
+    
+    for i in [0, 40, 45, 50, 55, 60]:
+        axes[1].axhline(y = i, linewidth = 2, color = cmap(i%12))
+    
+    axes[1].axis('off')
+    axes[1].axhline(y = 0, linewidth = 8, color = 'red')
+
+    plt.suptitle('Wrapping Example')
 
     fig.set_size_inches(6, 6)
 
-    #plt.show()
-
-    fig.savefig(rootPath + "wrappingExample1.png", bbox_inches ='tight', dpi = 1000)
-
-    fig, axes = plt.subplots(1, 1)
-
-    #axes.contourf(np.flip(velocityExtended, 1), levels = 1000)
-    
-    g = 0
-    for i in [0, 45, 48, 50, 51, 52, 53, 54, 55]:
-        g = g + 1
-        axes.axhline(y = g, linewidth = 2, color = cmap(i%20))
-    
-    axes.axis('off')
-    axes.axhline(y = 0, linewidth = 8, color = 'red')
-
-    fig.set_size_inches(6, 6)
-
-    #plt.show()
-
-    fig.savefig(rootPath + "wrappingExample2.png", bbox_inches ='tight', dpi = 1000)
+    plt.show()
 
 if __name__ == "__main__":
     
