@@ -10,11 +10,13 @@ The Machine Learning code present here takes up a series of seperate files. Here
 3. Encoder
   - This saves all of the pressure coefficent data as latent space data.
 4. Appender
-  - The appender adds the normalization data to the latent space data. This can by bypassed if you don't care about normaliztion.
+  - The appender adds the normalization data to the latent space data.
+  - This can by bypassed if you don't care about normaliztion.
 5. DNN
   - This script creates and trains the Deep Neural Network that exists between the Airfoil Features and the Latent Space
 6. Decoder
-  - This script generates and compares the output of 
+  - This script generates example outputs for thge DNN and Convolutional Network and then compares them to the ground truth data.
+  - The .CGNS File used for comparing the data is also used to reshape the network output back into real space.
 7. doAll
   - This script runs all 6 of the previous files back to back.
   - It should override the configuration of each individual file
