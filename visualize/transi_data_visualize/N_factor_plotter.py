@@ -62,14 +62,12 @@ def parse_zones_by_frequency(filename):
 
 
 # Usage
-filename = 'nfactor_ts.dat'  # Replace with your actual file path
+filename = './input/nfactor_ts.dat'  # Replace with your actual file path
 zone_data = parse_zones_by_frequency(filename)
 
 
 
 # Plotting
-
-from cycler import cycler
 colors = plt.cm.tab20.colors  # or try 'tab20b', 'tab20c', etc.
 #plt.rcParams['axes.prop_cycle'] = cycler(color=colors)
 
@@ -84,19 +82,19 @@ for i, (freq, data) in enumerate(sorted(zone_data.items())):
 
 plt.xlabel("x/c", fontsize=16)
 plt.ylabel("$N_{TS}$", fontsize=16, rotation=0, labelpad=20)
-plt.xlim([0,0.6])
-plt.ylim([-0.5,10])
+plt.xlim([0,0.83])
+plt.ylim([-0.5,15])
 plt.legend(
     title="Frequency",
     title_fontsize=16,
     fontsize=12,
     loc="center left",
-    bbox_to_anchor=(0.6, 0.8),
+    bbox_to_anchor=(0.75, 0.8),
     borderaxespad=0,
     frameon=False
 )
 plt.tight_layout(rect=[0, 0, 0.75, 1])  # Adjust plot area to make space for legend
 plt.tick_params(axis='both', labelsize=16)
 
-#plt.show()
-plt.savefig("nfactor_plot.svg", format='svg', dpi=300)
+plt.show()
+#plt.savefig("nfactor_plot.svg", format='svg', dpi=300)
