@@ -22,9 +22,9 @@ encoderEpochs =  encoderTrainingData[:, 0]
 encoderL2 = encoderTrainingData[:, 2]
 encoderL2Real = encoderTrainingData[:, 5]
 
-denseEpochs =  denseTrainingData[:100, 0]
-denseError = denseTrainingData[100:, 1]
-denseErrorReal = denseTrainingData[100:, 3]
+denseEpochs =  denseTrainingData[:, 0]
+denseError = denseTrainingData[:, 1]
+denseErrorReal = denseTrainingData[:, 3]
 
 denseError = 1 - denseError
 
