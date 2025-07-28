@@ -6,9 +6,9 @@ import pyvista as pv
 import niceplots
 import matplotlib.pyplot as plt
 
+plt.style.use(niceplots.get_style())
 plt.rcParams['mathtext.fontset'] = 'stix'
 plt.rcParams["font.family"] = "Times New Roman"
-plt.style.use(niceplots.get_style())
 
 from matplotlib import colormaps
 import numpy as np
@@ -94,7 +94,7 @@ def main():
     decoderExt = "decoder.keras"
     dnnExt = "dnn.keras"
 
-    """
+    
 
     startTime = time.time()
 
@@ -150,8 +150,7 @@ def main():
 
     np.savetxt(rootPath + "finalPredictions.csv", l2Values, fmt = '%s')
 
-    """
-
+    
     l2Values = np.loadtxt(rootPath + "finalPredictions.csv")
 
     fig, axes = plt.subplots(1,1)
@@ -160,7 +159,7 @@ def main():
 
     axes.hist(l2Values, bins = binValues, edgecolor = "black", color = 'orange', orientation = 'vertical')
 
-    #axes.set_title("Turbulent Dataset Relative L2 Error")
+    axes.set_title("Turbulent Dataset Relative L2 Error")
 
     axes.set_ylabel("Simulations predicted", size = 20, rotation = 0, labelpad = 125)
 

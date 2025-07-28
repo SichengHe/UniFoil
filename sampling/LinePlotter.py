@@ -7,9 +7,9 @@ import pyvista as pv
 import niceplots
 import matplotlib.pyplot as plt
 
+plt.style.use(niceplots.get_style())
 plt.rcParams['mathtext.fontset'] = 'stix'
 plt.rcParams["font.family"] = "Times New Roman"
-plt.style.use(niceplots.get_style())
 
 from matplotlib import colormaps
 import random
@@ -67,7 +67,6 @@ def getPressureDataCGNS(filePath):
     n_pts_per_ring = imageShape[1]
     total = n_rings * n_pts_per_ring
 
-    #vel_mag_reshaped = vel_mag[:total].reshape((n_rings, n_pts_per_ring))
     pressureCoefReshaped = pressureCoefficent[:total].reshape((n_rings, n_pts_per_ring))
 
     return pressureCoefReshaped
@@ -153,9 +152,9 @@ def main(examples, isRandom):
 
     fig.set_size_inches(10, 8)
 
-    #plt.show()
+    plt.show()
 
-    plt.savefig(rootPath + "truthVsPrediction.pdf", bbox_inches ='tight')
+    #plt.savefig(rootPath + "truthVsPrediction.pdf", bbox_inches ='tight')
 
 
 if __name__ == "__main__":
