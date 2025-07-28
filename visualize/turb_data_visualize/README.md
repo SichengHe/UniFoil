@@ -1,0 +1,2 @@
+Run visualize.py which is a user--interactive python script to enable users to load and visualize select files from the dataset.
+This script requires CGNS file and the airfoil coordinates generated from ``geometry'' folder.
