@@ -9,8 +9,8 @@ plt.rcParams["font.family"] = "Times New Roman"
 
 class CGNSPostProcessor:
     def __init__(self, cgns_file, airfoil_file=None):
-        self.cgns_path = os.path.join("input", cgns_file)
-        self.airfoil_path = os.path.join("input", airfoil_file) if airfoil_file else None
+        self.cgns_path = os.path.abspath(cgns_file)
+        self.airfoil_path = os.path.abspath(airfoil_file) if airfoil_file else None
         self.mesh = None
         self.x_af, self.y_af = None, None
 
