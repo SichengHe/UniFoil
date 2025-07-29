@@ -36,16 +36,9 @@ UniFoil/
 │   └── ml_helpers/      # Support functions for ML preprocessing
 │
 ├── ml/                  # ML workflows: training, evaluation, models
-│   ├── models/          # Neural network architectures (e.g., CNNs, GNNs)
-│   ├── training/        # Training loops, hyperparameter config
-│   └── evaluation/      # Post-training performance analysis
 │
 ├── examples/            # End-to-end usage examples
-│   ├── dataset_post/    # Dataset inspection and plotting
-│   └── ml_usage/        # ML inference or benchmark examples
-│
-├── input/               # Shared input files (optional airfoils, configs, etc.)
-├── output/              # Output directory for plots, npz files, predictions
+│   
 └── README.md
 ```
 
