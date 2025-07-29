@@ -31,9 +31,6 @@ UniFoil/
 │   └── cfd/             # CFD simulation drivers and setups
 │
 ├── tools/               # Utilities for dataset processing & ML
-│   ├── extractors/      # Data extractors (e.g., CGNS -> npz, vtk)
-│   ├── visualizers/     # Post-processing and visualization tools
-│   └── ml_helpers/      # Support functions for ML preprocessing
 │
 ├── ml/                  # ML workflows: training, evaluation, models
 │
