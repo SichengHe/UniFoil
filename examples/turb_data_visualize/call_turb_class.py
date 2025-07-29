@@ -1,4 +1,11 @@
-from post_processor_class import CGNSPostProcessor
+import os
+import sys
+
+# Get absolute path to the UniFoil root directory
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+# Add UniFoil to sys.path
+sys.path.append(ROOT_DIR)
+from tools.post_processor_class_turb import CGNSPostProcessor
 
 # --- Static user input ---
 cgns_filename = "airfoil_incomp.cgns"
