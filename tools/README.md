@@ -5,7 +5,7 @@ This class provides utilities to:
 - Plot the airfoil shape overlaid with transition locations
 - Optionally save extracted data to `.npz` format
 
-📁 Folder Structure (Example)
+**Folder Structure (Example)**
 
 ```
 UniFoil/
@@ -20,7 +20,7 @@ UniFoil/
 │   └── visualize_nfactor.py    # ← Your runner script
 ```
 
-Example: Basic Usage
+**Example: Basic Usage**
 
 ```python
 # examples/visualize_nfactor.py
@@ -45,7 +45,7 @@ plotter.plot_nfactor(save_npz_path="output/nfactor_curves.npz")
 plotter.plot_airfoil_with_transition(save_npz_path="output/airfoil_transition.npz")
 ```
 
-Saved Data Format (.npz)
+**Saved Data Format (.npz)**
 
 - `nfactor_curves.npz` contains:
   - `x_c_150.0Hz`, `N_150.0Hz`, etc. for each frequency
@@ -64,7 +64,7 @@ The `CGNSPostProcessor` class provides an interface to:
 
 ---
 
-## 📁 Folder Structure Example
+**Folder Structure Example**
 
 ```
 UniFoil/
@@ -81,7 +81,7 @@ UniFoil/
 
 ---
 
-## 🚀 Example Usage in `runner_script.py`
+**Example Usage in `runner_script.py`**
 
 ```python
 import sys
@@ -114,7 +114,7 @@ x, y, q = post.extract_xy_quantity(
 
 ---
 
-## 🧠 Supported Field Names
+**Supported Field Names**
 
 - `"Velocity"` → use `vel_component='a'`, `'b'`, or `'c'` for magnitude, x, or y components
 - `"Mach"`, `"Pressure"`, `"Temperature"`, `"Density"`, `"CoefPressure"`
@@ -122,7 +122,7 @@ x, y, q = post.extract_xy_quantity(
 
 ---
 
-## 💾 Saved `.npz` Contents
+**Saved `.npz` Contents**
 
 When using `extract_xy_quantity(..., save_path="file.npz")`, the saved file will contain:
 
