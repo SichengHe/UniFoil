@@ -19,49 +19,6 @@ In the main-directory, we have the following folders
 - Machine Learning : Contains code for the neural network training that was successfully trained on the FT-airfoil dataset.
 - Images : Some results from the paper.
 
-
-## Tool usage for turbulent data
-
-## Tool usage for transition data
-This class provides utilities to:
-- Parse and plot N-factor data from a `.dat` file
-- Plot the airfoil shape overlaid with transition locations
-- Optionally save extracted data to `.npz` format
-
-```python
-# examples/visualize_nfactor.py
-
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from tools.nfactor_plotter import NFactorPlotter
-
-# Initialize with default or custom paths
-plotter = NFactorPlotter(
-    nfactor_file="./input/nfactor_ts.dat",
-    airfoil_file="./input/airfoil_coords.dat",
-    transiloc_file="./input/transiLoc.dat"
-)
-
-# Plot N-factor curves (and save parsed data)
-plotter.plot_nfactor(save_npz_path="output/nfactor_curves.npz")
-
-# Plot airfoil with transition overlay (and save data)
-plotter.plot_airfoil_with_transition(save_npz_path="output/airfoil_transition.npz")
-```
-
-## 💾 Saved Data Format (.npz)
-
-- `nfactor_curves.npz` contains:
-  - `x_c_150.0Hz`, `N_150.0Hz`, etc. for each frequency
-
-- `airfoil_transition.npz` contains:
-  - `x`, `y` → airfoil coordinates  
-  - `ps_point`, `ss_point` → transition points on suction and pressure sides
-
-Example of using these tools can be found in the examples folder.
-
 Each folder contains its own **README.md** file to aid better understanding of information and code.
 
 <p align="center">
