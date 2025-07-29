@@ -1,1 +1,1 @@
-Sample input data folder contains files from the dataset. Should the end--user wish to run this on the entire dataset, please look into the documentation on usage of classes in tools directory.
+Sample input data folder contains files from the dataset. Should the end--user wish to run this on the entire dataset, please look into the documentation on usage of classes in **tools** directory.
