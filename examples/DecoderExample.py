@@ -8,6 +8,7 @@
 # values.
 
 # This script requires Gdown to automatically install the examples from Google Drive
+# May require PyQt6 if you encounter problems with MatPlotLib not graphing.
 
 import os
 import time
