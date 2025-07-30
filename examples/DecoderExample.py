@@ -1,21 +1,18 @@
-# Decoder
+# Decoder Example
 # Ben Melanson
-# July 28th, 2025
+# July 30th, 2025
 
 # Description
 # This script runs the entire neural network package on a set of 
 # airfoils and compares the results of the network to the true
 # values.
-# This variant automatically downloads example data from Google Drive.
+
+# This script requires Gdown to automatically install the examples from Google Drive
 
 import os
 import time
 import pyvista as pv
 import matplotlib
-
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams["font.family"] = "Times New Roman"
-
 import matplotlib.pyplot as plt
 import matplotlib.ticker as tkr
 from matplotlib.patches import Polygon
@@ -24,10 +21,6 @@ import gdown
 from zipfile import ZipFile
 import numpy as np
 import tensorflow as tf
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.models import load_model
-from tensorflow.keras import layers
-from tensorflow.keras.models import Model
 
 def normalize(inputArray): # Convert all values to fall between 0 and 1. Good for training.
 
