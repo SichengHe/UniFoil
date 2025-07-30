@@ -76,6 +76,7 @@ The following dependencies are necessary for smooth working of the codes in this
 - ADflow with transition simulation capability (code not released, please contact author)
 - pyHyp
 - niceplots
+- gdown
 
 ### Install all using pip:
 
