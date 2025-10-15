@@ -1,7 +1,17 @@
 # Unifoil Machine Learning Code
 Ben Melanson
 
-The Machine Learning code present here takes up a series of seperate files. Here is what they all do.
+These scripts pertain to using the UniFoil dataset for Machine Learning applications.
+Feel free to use the provided code and modify it to your liking.
+Utilizes Python and TensorFlow
+
+## Two Stage Network
+
+The Two Stage Network is a Convolutional Neural Network in the form of an Encoder/Decoder model connected with a Deep Neural Network input layer.
+The Encoder/Decoder is run trained first and the DNN is trained on the resultant model.
+Place all the required scripts in a directory of your choice.
+To use the model, make sure that all of the datapoints from the Turbulent Dataset are located in a subdirectory called "output".
+
 
 1. Reshaper
   - This script reshapes data from the .cgns files into a set of .csv files.
@@ -13,10 +23,36 @@ The Machine Learning code present here takes up a series of seperate files. Here
   - The appender adds the normalization data to the latent space data.
   - This can by bypassed if you don't care about normaliztion.
 5. DNN
-  - This script creates and trains the Deep Neural Network that exists between the Airfoil Features and the Latent Space
+  - This script creates and trains the Deep Neural Network that exists between the Airfoil Features and the Latent Space.
 6. Decoder
   - This script generates example outputs for thge DNN and Convolutional Network and then compares them to the ground truth data.
   - The .CGNS File used for comparing the data is also used to reshape the network output back into real space.
 7. doAll
   - This script runs all 6 of the previous files back to back.
-  - It should override the configuration of each individual file
+  - It should override the configuration of each individual file.
+
+## Sampling
+
+Sampling contains a number of scripts used to examine the effectiveness of the Model, as well as to see how the data transformations are completed.
+
+1. Error Plotter
+  - This simple script loads the output from the ML Network training and plots the training and testing Average L2 Norm Error per Epoch.
+  - Using this script requires having run the ML Network or using a provided example CSV.
+2. Histogram Plotter
+  - This script predicts the L2 Norm Error for every single dataset entry and then compiles the results into a histogram plot.
+  - This gives a general trend of the model's accuracy across the entire dataset.
+3. Line Plotter
+  - This script plots the real pressure values on the X axis and the predicted pressure values on the Y axis.
+  - Any error is seen as a deviation from the line X = Y
+4. Wrapping Example
+  - This script shows how the .CGNS data is unwrapped into a rectangular format.
+  - A example .CGNS is provided, however any .CGNS from the Unifoil Turbulent Dataset should work.
+  - When using the Unifoil Laminar dataset, the dimensions of the output must be altered from 292 x 84 to 304 x 84. 
+
+## Dataset Generation
+
+As an alternative to the Two Stage Network, TensorFlow datasets allow for more efficent.
+DataGenerationLauncher will recursivly call DataGenerationUtility.
+This generates a quantity of shards to allow for easier data distribution.
+DataGenerationLauncher requires all of the target .cgns files to be in a subdirectory called "output".
+Parameters for the dataset shape and type must be configured in DataGenerationUtility.
