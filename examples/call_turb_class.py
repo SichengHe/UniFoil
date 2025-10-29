@@ -14,7 +14,7 @@ from tools.post_processor_class_turb import CGNSPostProcessor
 # --- Static user input ---
 cgns_filename = "./sample_input_data_sim/airfoil_incomp.cgns"
 airfoil_filename = "./sample_input_data_sim/airfoil_coords.dat"
-field_to_plot = "CoefPressure"            # e.g., "Mach", "SkinFrictionX", "Pressure", etc.
+field_to_plot = "Pressure"            # e.g., "Mach", "SkinFrictionX", "Pressure", etc.
 block_index = 2                       # Usually 2, but depends on file structure
 vel_component = 'a'                  # 'a' for |u|, 'b' for u_x, 'c' for u_y (only for Velocity)
 
