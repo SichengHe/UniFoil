@@ -1,3 +1,7 @@
+'''
+This is a sample script showing how to use the post processor in the "tools" dir
+'''
+
 import os
 import sys
 
@@ -8,8 +12,8 @@ sys.path.append(ROOT_DIR)
 from tools.post_processor_class_turb import CGNSPostProcessor
 
 # --- Static user input ---
-cgns_filename = "./sample_input_data/airfoil_incomp.cgns"
-airfoil_filename = "./sample_input_data/airfoil_coords.dat"
+cgns_filename = "./sample_input_data_sim/airfoil_incomp.cgns"
+airfoil_filename = "./sample_input_data_sim/airfoil_coords.dat"
 field_to_plot = "CoefPressure"            # e.g., "Mach", "SkinFrictionX", "Pressure", etc.
 block_index = 2                       # Usually 2, but depends on file structure
 vel_component = 'a'                  # 'a' for |u|, 'b' for u_x, 'c' for u_y (only for Velocity)
@@ -20,7 +24,8 @@ post.plot_field(field_name=field_to_plot, block_index=block_index, vel_component
 post.display_structure()
 
 x, y, q = post.extract_xy_quantity(
-    field_name="Density", 
+    field_name="Pressure", 
     block_index=2, 
     vel_component='a', 
-    save_path="./velocity_mag_z0.npz")
+    save_path="./pressure_z0.npz")
+

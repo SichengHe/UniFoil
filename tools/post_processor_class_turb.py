@@ -126,7 +126,7 @@ class CGNSPostProcessor:
                 label = "$Ma$"
  
             elif field_name=='Density':
-                label = "$\rho$"
+                label = r"$\rho$"
 
             elif field_name=='Pressure':
                 label = "P"
