@@ -111,8 +111,8 @@ class sup_transi:
         y = data[:, 2]
 
         transi_data = np.loadtxt(self.transiloc_file, usecols=(0, 1))
-        ps_point = transi_data[0]  # Pressure side (red)
-        ss_point = transi_data[1]  # Suction side (blue)
+        ps_point = transi_data[1]  # Pressure side (red)
+        ss_point = transi_data[0]  # Suction side (blue)
 
         if save_npz_path is not None:
             np.savez(
@@ -129,13 +129,13 @@ class sup_transi:
         patch = Polygon(np.c_[x, y], closed=True, facecolor='lightgray', edgecolor='black', alpha=0.3)
         ax.add_patch(patch)
 
-        ax.plot(*ps_point, 'ro', label="Suction side")
-        ax.plot(*ss_point, 'bo', label="Pressure side")
+        ax.plot(*ps_point, 'ro', label="Pressure side")
+        ax.plot(*ss_point, 'bo', label="Suction side")
 
         ax.set_aspect('equal')
         ax.set_xlabel("x", fontsize=14)
         ax.set_ylabel("y", fontsize=14, rotation=0)
-        ax.grid(True)
+        ax.grid(False)
 
         x_pad = 0.05 * (x.max() - x.min())
         y_pad = 0.5 * (y.max() - y.min())
@@ -145,3 +145,46 @@ class sup_transi:
         plt.title("Transition locations")
         plt.tight_layout()
         plt.show()
+    
+    def get_data(self):
+        """
+        Returns parsed N-factor and transition data without plotting.
+    
+        Returns
+        -------
+        tuple:
+            (nfactor_data, transi_data)
+            - nfactor_data: dict {frequency (Hz): ndarray}
+            - transi_data: dict with keys ('x', 'y', 'ps_point', 'ss_point')
+        """
+        nfactor_data = None
+        transi_data = None
+    
+        # ---------- N-Factor ----------
+        if os.path.exists(self.nfactor_file):
+            try:
+                nfactor_data = self.parse_zones_by_frequency()
+            except Exception as e:
+                print(f"[sup_transi] ⚠️ Error parsing N-factor data: {e}")
+        else:
+            print(f"[sup_transi] ⚠️ Missing N-factor file: {self.nfactor_file}")
+    
+        # ---------- Transition + Geometry ----------
+        if os.path.exists(self.airfoil_file) and os.path.exists(self.transiloc_file):
+            try:
+                airfoil = np.loadtxt(self.airfoil_file)
+                x, y = airfoil[:, 1], airfoil[:, 2]
+                transi = np.loadtxt(self.transiloc_file, usecols=(0, 1))
+                ps_point, ss_point = transi[1], transi[0]
+                transi_data = {
+                    "x": x,
+                    "y": y,
+                    "ps_point": ps_point,
+                    "ss_point": ss_point,
+                }
+            except Exception as e:
+                print(f"[sup_transi] ⚠️ Error loading transition geometry: {e}")
+        else:
+            print(f"[sup_transi] ⚠️ Missing transition or airfoil file.")
+    
+        return nfactor_data, transi_data
