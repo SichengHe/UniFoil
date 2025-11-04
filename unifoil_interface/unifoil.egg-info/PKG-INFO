@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: unifoil
+Version: 0.1.0
+Summary: Unified airfoil geometry generators (FT & NLF)
+Author: Rohit Kanchi
+Requires-Python: >=3.8
