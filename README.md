@@ -9,80 +9,16 @@ UniFoil features include the following:
   <img src="images/Logo.png" width="200"/>
 </p>
 
-The dataset can be found here - https://doi.org/10.7910/DVN/VQGWC4
+The dataset can be found at the Harvard Dataverse here -> https://doi.org/10.7910/DVN/VQGWC4
 
 ## How to use UniFoil?
-This repository provides a modular pipeline for:
-- Geometry sampling
-- Mesh/grid generation
-- CFD simulation
-- Dataset extraction & visualization
-- Machine learning workflow
-
----
-
-**Repository Structure**
-
-```
-UniFoil/
-├── data_generation/
-│   ├── geometry/        # Geometry sampling and perturbation scripts
-│   ├── grid/            # Grid/mesh generation utilities (e.g., PyHyp, Prefoil)
-│   └── cfd/             # CFD simulation drivers and setups
-│
-├── tools/               # Utilities for dataset processing & ML
-│
-├── ml/                  # ML workflows: training, evaluation, models
-│
-├── examples/            # End-to-end usage examples
-│   
-└── README.md
-```
-
----
-
-## Getting Started
-
-1. **Generate data:**
-   - Use scripts inside `data_generation/geometry`, `grid`, and `cfd` to produce CFD cases.
-
-2. **Extract features:**
-   - Use `tools/extractors/` to convert CGNS data into `.npz` or `.csv`.
-
-3. **Visualize flow:**
-   - Use `tools/visualizers/` or `examples/dataset_post/` to understand how to extract data and generate plots or field overlays.
-
-4. **Train ML models:**
-   - Run workflows in the `ml/` directory using processed `.npz` or `.csv` datasets.
-
-5. **Test/Deploy:**
-   - Use `examples/ml_usage/` to test or deploy trained models.
-
-Each folder contains its own **README.md** file to aid better understanding of information and code.
-
-<p align="center">
-  <img src="images/Flow_Regimes.png" width="800"/>
-</p>
-
-## Dependencies
-The following dependencies are necessary for smooth working of the codes in this repository:
-- Tensorflow
-- Scikit-learn
-- Numpy
-- Matplotlib
-- PyVista
-- Nvidia Cuda Drivers (Optional, for speed)
-- ADflow
-- ADflow with transition simulation capability (code not released, please contact author)
-- pyHyp
-- niceplots
-- gdown
-
-### Install all using pip:
-
+Clone this repository and enter the UniFoil directory.
+Run the following command in terminal to install UniFoil interface. **Please ensure that you have a fresh python virtual environment before doing so.**
 ```html
-pip install tensorflow scikit-learn numpy matplotlib pyvista
+pip install .
 ```
+This interface will hekp with data visualization and extraction from the dataset. 
+For usage, please refer to the ``Read the Docs`` website -> https://unifoildocs.readthedocs.io/
 ## License
 
 Distributed using the **CC BY-SA** license, version 4.0; \
@@ -90,7 +26,7 @@ Please see the LICENSE file for details.
 
 ## Citing UniFoil
 
-If you use UniFoil, please cite:
+If you use the UniFoil dataset, please cite
 
 ```bibtex
 @misc{UniFoil,
@@ -102,3 +38,19 @@ If you use UniFoil, please cite:
   publisher = {Harvard Dataverse},
   year = {2025}
 }
+```
+Also, please cite our paper
+```bibtex
+@ARTICLE{Kanchi2025,
+  title         = "{UniFoil}: A universal dataset of airfoils in transitional
+                   and turbulent regimes for subsonic and transonic flows",
+  author        = "Kanchi, Rohit Sunil and Melanson, Benjamin and Somasekharan,
+                   Nithin and Pan, Shaowu and He, Sicheng",
+  month         =  oct,
+  year          =  2025,
+  copyright     = "http://creativecommons.org/licenses/by-sa/4.0/",
+  archivePrefix = "arXiv",
+  primaryClass  = "physics.flu-dyn",
+  eprint        = "2505.21124"
+}
+```
