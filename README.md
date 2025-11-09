@@ -17,7 +17,7 @@ Run the following command in terminal to install UniFoil interface. **Please ens
 ```html
 pip install .
 ```
-This interface will hekp with data visualization and extraction from the dataset. 
+This interface will help with data visualization and extraction from the dataset. 
 For usage, please refer to the ``Read the Docs`` website -> https://unifoildocs.readthedocs.io/
 ## License
 
