@@ -9,4 +9,12 @@ setup(
     include_package_data=True,
     package_data={"unifoil": ["geometry/*.py"]},
     python_requires=">=3.8",
+    install_requires=[
+        "numpy",
+        "matplotlib",
+        "pandas",
+        "pyvista",
+        "niceplots",
+        "mdolab-baseclasses",
+    ],
 )
