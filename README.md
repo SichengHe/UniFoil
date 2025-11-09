@@ -6,7 +6,7 @@ UniFoil features include the following:
 - 50,000 NLF airfoil simulations in the transition regime.
 
 <p align="center">
-  <img src="examples/images/Logo.png" width="200"/>
+  <img src="images/Logo.png" width="200"/>
 </p>
 
 The dataset can be found here - https://doi.org/10.7910/DVN/VQGWC4
@@ -61,7 +61,7 @@ UniFoil/
 Each folder contains its own **README.md** file to aid better understanding of information and code.
 
 <p align="center">
-  <img src="examples/images/Flow_Regimes.png" width="800"/>
+  <img src="images/Flow_Regimes.png" width="800"/>
 </p>
 
 ## Dependencies
